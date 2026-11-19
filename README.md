@@ -10,10 +10,10 @@ MarxScript，取 "倚马可待" 之意。在生成式 AI 爆发时代，面向�
 
 | 目录 | 内容 | 版本 |
 | --- | --- | --- |
-| `hid-kbd-mini/` | 微信小程序：蓝牙扫描与连接、文本转按键指令、长文批量下发、累计序号回执与状态对账、发送期间屏幕常亮 | 0.11.9 / V1.0 |
+| `hid-kbd-mini/` | 微信小程序：蓝牙扫描与连接、文本转按键指令、长文批量下发、累计序号回执与状态对账、发送期间屏幕常亮 |  V1.0 |
 | `KBD582/` | 沁恒 CH582F 固件源码：BLE 自定义 GATT 服务、USB HID 键盘、行协议解析、击键队列与看门狗 | v1（`MarxScript-V1`，广播名 `MarxScript`） |
 
-`KBD582/firmware/` 内附 v44 预编译产物（构建标识 `MarxScript-V1`，广播名 `MarxScript`），文件名统一为 `MarxScript-V1.*`：
+`KBD582/firmware/` 内附  预编译产物（构建标识 `MarxScript-V1`，广播名 `MarxScript`），文件名统一为 `MarxScript-V1.*`：
 
 | 文件 | 用途 |
 | --- | --- |
