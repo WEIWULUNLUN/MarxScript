@@ -1,5 +1,5 @@
 {
-  "appid": "wx9f033eab925cfa72",
+  "appid": "touristappid",
   "projectname": "open-hid-kbd-mini",
   "description": "MarxScript 病历文书输入辅助小程序软件 V1.0：BLE 下发 GBK 十进制码，CH582F 硬件以 Alt+小键盘上屏",
   "compileType": "miniprogram",

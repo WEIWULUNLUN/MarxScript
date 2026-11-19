@@ -1,0 +1,12 @@
+MarxScript
+Copyright 2026 论海隆
+
+This product includes software derived from the WCH CH58x EVT/EXAM SDK
+(Copyright (c) 2021 Nanjing Qinheng Microelectronics Co., Ltd.),
+licensed under the Apache License, Version 2.0.
+
+The upstream source files that retain their original copyright notices and
+SPDX identifiers are listed in KBD582/THIRD-PARTY-NOTICES.md.
+
+MarxScript itself is licensed under the Apache License, Version 2.0.
+See the LICENSE file in this directory for the full license text.

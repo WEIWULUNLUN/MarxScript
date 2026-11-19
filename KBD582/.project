@@ -24,32 +24,32 @@
     <link>
       <name>HAL</name>
       <type>2</type>
-      <location>C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/BLE/HAL</location>
+      <location>SDK_ROOT/EVT/EXAM/BLE/HAL</location>
     </link>
     <link>
       <name>LIB</name>
       <type>2</type>
-      <location>C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/BLE/LIB</location>
+      <location>SDK_ROOT/EVT/EXAM/BLE/LIB</location>
     </link>
     <link>
       <name>Ld</name>
       <type>2</type>
-      <location>C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/Ld</location>
+      <location>SDK_ROOT/EVT/EXAM/SRC/Ld</location>
     </link>
     <link>
       <name>RVMSIS</name>
       <type>2</type>
-      <location>C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/RVMSIS</location>
+      <location>SDK_ROOT/EVT/EXAM/SRC/RVMSIS</location>
     </link>
     <link>
       <name>Startup</name>
       <type>2</type>
-      <location>C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/Startup</location>
+      <location>SDK_ROOT/EVT/EXAM/SRC/Startup</location>
     </link>
     <link>
       <name>StdPeriphDriver</name>
       <type>2</type>
-      <location>C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/StdPeriphDriver</location>
+      <location>SDK_ROOT/EVT/EXAM/SRC/StdPeriphDriver</location>
     </link>
   </linkedResources>
   <filteredResources>

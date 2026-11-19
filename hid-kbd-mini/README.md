@@ -29,7 +29,7 @@ hid-kbd-mini/
 
 ## 三步跑起来
 
-1. **导入项目**：微信开发者工具 → 导入 `hid-kbd-mini` 目录。AppID 已配好 `wx9f033eab925cfa72`，用同主体微信扫码即可（首次需在 mp 后台「成员管理」把自己加为开发者）。
+1. **导入项目**：微信开发者工具 → 导入 `hid-kbd-mini` 目录。`project.config.json` 的 `appid` 是占位值 `touristappid`（无 AppID 模式，仅能跑模拟器）；真机调试或上传前改成你自己的小程序 AppID，并在 mp 后台「成员管理」把自己加为开发者。
 2. **改 UUID**：打开 `utils/config.js`，把 `SERVICE_UUID / WRITE_UUID / NOTIFY_UUID` 改成 CH582F 固件实际值。
    现在填的是常见透传服务 `FFE0/FFE1/FFE2`，不对就连不上。UUID 对不上时 `ble.js` 会兜底找「可写+可通知」的服务，但别指望它总能猜对。
 3. **改密钥**：开源版没有「设备鉴权」输入入口，直接改 `utils/store.js` 的 `DEFAULT_SETTINGS.authKey`，
@@ -74,10 +74,11 @@ hid-kbd-mini/
 `tools/` 调试工具与日志截图、`.bak` 备份、局域网调试桥（`utils/debugtap.js`）与真机自检（`utils/autotest.js`），
 并剥离了小程序与固件源码中的全部注释。`KBD582/` 的 `.c/.h` 代码逻辑与协议一字未改。
 
-上传 GitHub 前请自行确认：
+clone 后请注意：
 
-- `project.config.json` 中的 AppID（当前为 `wx9f033eab925cfa72`），以及是否需要补一份 LICENSE。
-- `KBD582/.project` 与 `KBD582/KBD582.wvproj` 里的 `linkedResources` 指向作者本机的沁恒官方 SDK 绝对路径
-  （`.../EVT/EXAM/BLE/HAL`、`SRC/Startup`、`SRC/StdPeriphDriver` 等），clone 后需在 MounRiver Studio 中
-  重新指向自己的 `EVT/EXAM` 目录才能编译。
-- 历史固件与最新版 v44 的预编译 `.hex` 已全部删除，需自行用 MounRiver Studio 编译烧录。
+- `project.config.json` 的 `appid` 为占位值 `touristappid`，真机调试或上传前改成自己的 AppID。
+- `KBD582/.project` 与 `KBD582/KBD582.wvproj` 的 `linkedResources` 使用占位路径 `SDK_ROOT/EVT/EXAM/...`
+  （`BLE/HAL`、`SRC/Startup`、`SRC/StdPeriphDriver` 等），需在 MounRiver Studio 中
+  重新指向自己机器上沁恒 CH58x `EVT/EXAM` 目录的实际位置才能编译。
+- `KBD582/firmware/` 内附 v44 预编译产物，可直接烧录 `KBD582_v44_20261114-1951.hex`，无需自行编译。
+- 仓库根目录的 `LICENSE`（Apache-2.0）与 `NOTICE` 适用于整个项目；上游声明见 `KBD582/THIRD-PARTY-NOTICES.md`。

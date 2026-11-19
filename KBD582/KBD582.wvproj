@@ -23,27 +23,27 @@
 		"linkedFolders": [
 			{
 				"name": "HAL",
-				"location": "C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/BLE/HAL"
+				"location": "SDK_ROOT/EVT/EXAM/BLE/HAL"
 			},
 			{
 				"name": "LIB",
-				"location": "C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/BLE/LIB"
+				"location": "SDK_ROOT/EVT/EXAM/BLE/LIB"
 			},
 			{
 				"name": "Ld",
-				"location": "C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/Ld"
+				"location": "SDK_ROOT/EVT/EXAM/SRC/Ld"
 			},
 			{
 				"name": "RVMSIS",
-				"location": "C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/RVMSIS"
+				"location": "SDK_ROOT/EVT/EXAM/SRC/RVMSIS"
 			},
 			{
 				"name": "Startup",
-				"location": "C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/Startup"
+				"location": "SDK_ROOT/EVT/EXAM/SRC/Startup"
 			},
 			{
 				"name": "StdPeriphDriver",
-				"location": "C:/Users/weiwulun/WorkBuddy/2026-11-12-13-06-38/SupertMini_CH57X+CH58X-20230605/CH58X/官方例程、官方评估版/EVT/EXAM/SRC/StdPeriphDriver"
+				"location": "SDK_ROOT/EVT/EXAM/SRC/StdPeriphDriver"
 			}
 		],
 		"removedResources": [
