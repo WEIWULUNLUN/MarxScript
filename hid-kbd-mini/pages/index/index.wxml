@@ -1,0 +1,102 @@
+<view class="page">
+
+  <view class="devbar {{authed ? 'is-ok' : (connected ? 'is-warn' : '')}}" bindtap="goDevices" hover-class="devbar-hover">
+    <view class="dot {{authed ? 'on' : (connected ? 'warn' : '')}}"></view>
+    <view class="devbar-main">
+      <view class="devbar-name ellipsis">{{deviceName}}</view>
+      <view class="devbar-sub ellipsis">{{stateText}}</view>
+    </view>
+    <view class="devbar-action">{{authed ? '切换' : '去连接'}}</view>
+  </view>
+
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">待发送文字</text>
+      <text class="muted">{{len}} / {{maxLen}}</text>
+    </view>
+
+    <textarea
+      class="ta"
+      value="{{text}}"
+      bindinput="onInput"
+      maxlength="{{maxLen}}"
+      placeholder="输入或粘贴要打到电脑上的文字…"
+      placeholder-class="ph"
+      show-confirm-bar="{{false}}"
+      cursor-spacing="30"
+      adjust-position="{{true}}"
+     style="height: 534rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></textarea>
+
+    <view class="ta-foot">
+      <text class="hint {{unsupported > 0 ? 'warn' : ''}}">{{hintText}}</text>
+      <text class="link" wx:if="{{len > 0}}" bindtap="onClear">清空</text>
+    </view>
+  </view>
+
+  <view class="sendbox">
+    <button
+      wx:if="{{!sending}}"
+      class="btn primary block sendbtn"
+      bindtap="onSend"
+      disabled="{{!canSend}}"
+      hover-class="btn-hover"
+    >
+      <view class="btn-main">发送到电脑</view>
+      <view class="btn-sub" wx:if="{{estimateMs > 0}}">预计 {{estimateText}}</view>
+    </button>
+
+    <button wx:else class="btn danger block sendbtn" bindtap="onAbort" hover-class="btn-hover">
+      <view class="btn-main">终止发送</view>
+      <view class="btn-sub">剩余 {{remainText}} · 点击立即停止</view>
+    </button>
+
+    <view class="progress" wx:if="{{sending}}">
+      <view class="progress-bar" style="width:{{percent}}%"></view>
+    </view>
+
+    <view class="trace" wx:if="{{traceText}}">{{traceText}}</view>
+
+    <view class="sendtip" wx:if="{{!authed}}">设备未就绪，先连接并鉴权通过</view>
+    <view class="sendtip" wx:elif="{{!sending && estimateMs === 0}}">输入文字，或点下面的快捷短语</view>
+    <view class="sendtip" wx:else>当前档位「{{speedName}}」，可在设置里一键调速</view>
+  </view>
+
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">快捷短语</text>
+      <text class="link" bindtap="goPhrases">管理</text>
+    </view>
+    <scroll-view class="chips" scroll-x enable-flex wx:if="{{phrases.length}}">
+      <view
+        class="chip"
+        wx:for="{{phrases}}"
+        wx:key="id"
+        data-index="{{index}}"
+        bindtap="onChipTap"
+        bindlongpress="onChipLongPress"
+      >
+        <text class="chip-t">{{item.title || '未命名'}}</text>
+      </view>
+    </scroll-view>
+    <view class="empty" wx:else>还没有短语，点「管理」新增常用病历模板</view>
+    <view class="muted" style="margin-top:16rpx">点一下追加到输入框，长按整条替换</view>
+  </view>
+
+  <view class="card kbd-entry" bindtap="goKeyboard" hover-class="card-hover">
+    <view class="kbd-entry-main">
+      <view class="kbd-entry-title">全键盘模拟</view>
+      <view class="muted">108 键虚拟键盘，直接敲电脑 · 支持 Ctrl / Shift / Alt 组合</view>
+    </view>
+    <view class="arrow">›</view>
+  </view>
+
+  <ad
+    wx:if="{{bannerId}}"
+    unit-id="{{bannerId}}"
+    ad-type="banner"
+    ad-theme="white"
+    binderror="onAdError"
+  ></ad>
+
+  <view class="safe-bottom"></view>
+</view>

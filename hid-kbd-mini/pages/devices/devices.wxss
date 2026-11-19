@@ -1,0 +1,115 @@
+.statusbar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 22rpx;
+  padding: 22rpx 24rpx;
+  margin-bottom: 24rpx;
+  border-left: 8rpx solid #c9d6de;
+  box-shadow: 0 4rpx 18rpx rgba(22, 33, 43, 0.05);
+}
+
+.statusbar.warn {
+  border-left-color: #f5a524;
+  background: #fffdf6;
+}
+
+.statusbar.ok {
+  border-left-color: #12a594;
+  background: #f6fdfc;
+}
+
+.status-title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.status-sub {
+  font-size: 23rpx;
+  color: #6b7a8c;
+  margin-top: 2rpx;
+}
+
+.tipcard {
+  background: #fff8ec;
+  border: 1rpx solid #ffe1b0;
+}
+
+.tip-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #b8730a;
+}
+
+.devitem {
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid #eef2f6;
+}
+
+.devitem:last-child {
+  border-bottom: none;
+}
+
+.devitem-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.devitem-name {
+  font-size: 29rpx;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+  margin-right: 12rpx;
+}
+
+.devitem-rssi {
+  font-size: 22rpx;
+  color: #8a97a6;
+  flex-shrink: 0;
+}
+
+.devitem-rssi.strong {
+  color: #12a594;
+}
+
+.devitem-sub {
+  font-size: 21rpx;
+  color: #a3aeba;
+  margin-top: 4rpx;
+}
+
+.mono {
+  font-family: Menlo, Consolas, monospace;
+  letter-spacing: 0.5rpx;
+}
+
+.devitem-act {
+  display: flex;
+  margin-top: 16rpx;
+}
+
+.devitem-act .btn {
+  margin-right: 14rpx;
+}
+
+.devitem-act .btn:last-child {
+  margin-right: 0;
+}
+
+.scanlist {
+  margin-top: 12rpx;
+}
+
+.autotip {
+  padding: 20rpx 24rpx;
+  background: #fff8ec;
+  border: 1rpx solid #ffe1b0;
+}
+
+.autotip-txt {
+  margin-left: 16rpx;
+  font-size: 25rpx;
+  color: #b8730a;
+}

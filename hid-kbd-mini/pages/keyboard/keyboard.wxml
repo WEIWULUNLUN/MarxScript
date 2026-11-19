@@ -1,0 +1,139 @@
+<view class="kbpage">
+
+  <view class="kbtop">
+    <view class="kbback" bindtap="onClose">‹ 返回</view>
+    <view class="kbdev" bindtap="goDevices">
+      <text class="kbdot {{authed ? 'on' : ''}}"></text>
+      <text class="ellipsis kbdname">{{authed ? deviceName : '未连接'}}</text>
+    </view>
+    <view class="kbmod {{modText ? 'on' : ''}}">{{modText || '无修饰'}}</view>
+  </view>
+
+  <scroll-view class="kbstrip" scroll-x enable-flex>
+    <view class="striprow">
+      <view
+        class="kkey fn"
+        wx:for="{{fnRow}}"
+        wx:key="label"
+        data-usage="{{item.usage}}"
+        data-label="{{item.label}}"
+        bindtap="onKeyTap"
+      >{{item.label}}</view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="kbstrip" scroll-x enable-flex>
+    <view class="striprow">
+      <view
+        class="kkey fn"
+        wx:for="{{editKeys}}"
+        wx:key="label"
+        data-usage="{{item.usage}}"
+        data-label="{{item.label}}"
+        bindtap="onKeyTap"
+      >{{item.label}}</view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="kbstrip" scroll-x enable-flex>
+    <view class="striprow">
+      <view
+        class="kkey sym"
+        wx:for="{{symKeys}}"
+        wx:key="label"
+        data-usage="{{item.usage}}"
+        data-label="{{item.label}}"
+        bindtap="onCharTap"
+      >{{item.label}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="kbmain">
+    <view class="krow">
+      <view
+        class="kkey"
+        wx:for="{{digitRow}}"
+        wx:key="label"
+        data-usage="{{item.usage}}"
+        data-label="{{item.label}}"
+        bindtap="onCharTap"
+      >{{item.label}}</view>
+    </view>
+
+    <view class="krow">
+      <view
+        class="kkey"
+        wx:for="{{row1}}"
+        wx:key="label"
+        data-usage="{{item.usage}}"
+        data-label="{{item.label}}"
+        bindtap="onCharTap"
+      >{{item.label}}</view>
+    </view>
+
+    <view class="krow">
+      <view
+        class="kkey"
+        wx:for="{{row2}}"
+        wx:key="label"
+        data-usage="{{item.usage}}"
+        data-label="{{item.label}}"
+        bindtap="onCharTap"
+      >{{item.label}}</view>
+    </view>
+
+    <view class="krow">
+      <view class="kkey fn w15 {{mods.shift ? 'mod-on' : ''}}" data-mod="shift" bindtap="onModTap">Shift</view>
+      <view
+        class="kkey"
+        wx:for="{{row3}}"
+        wx:key="label"
+        data-usage="{{item.usage}}"
+        data-label="{{item.label}}"
+        bindtap="onCharTap"
+      >{{item.label}}</view>
+      <view class="kkey fn w15" bindtap="onBackspace">⌫</view>
+    </view>
+
+    <view class="krow">
+      <view class="kkey fn w13 {{mods.ctrl ? 'mod-on' : ''}}" data-mod="ctrl" bindtap="onModTap">Ctrl</view>
+      <view class="kkey fn w13 {{mods.alt ? 'mod-on' : ''}}" data-mod="alt" bindtap="onModTap">Alt</view>
+      <view class="kkey fn w13 {{mods.win ? 'mod-on' : ''}}" data-mod="win" bindtap="onModTap">Win</view>
+      <view class="kkey space" bindtap="onSpace">空格</view>
+      <view class="kkey accent w13" bindtap="onEnter">⏎</view>
+    </view>
+
+    <view class="krow">
+      <view class="kkey fn" data-usage="80" data-label="←" bindtap="onKeyTap">←</view>
+      <view class="kkey fn" data-usage="82" data-label="↑" bindtap="onKeyTap">↑</view>
+      <view class="kkey fn" data-usage="81" data-label="↓" bindtap="onKeyTap">↓</view>
+      <view class="kkey fn" data-usage="79" data-label="→" bindtap="onKeyTap">→</view>
+      <view class="kkey fn" bindtap="onEsc">Esc</view>
+      <view class="kkey fn" bindtap="onDelete">Del</view>
+    </view>
+  </view>
+
+  <view class="kbpad">
+    <view class="padtitle">数字小键盘</view>
+    <view class="padgrid">
+      <view class="padline" wx:for="{{padRows}}" wx:for-item="padRow" wx:for-index="ri" wx:key="ri">
+        <view
+          class="kkey pad"
+          wx:for="{{padRow}}"
+          wx:key="label"
+          data-usage="{{item.usage}}"
+          data-label="{{item.label}}"
+          bindtap="onKeyTap"
+        >{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="hintbar">
+    <view class="lastsent {{busy ? 'sending' : ''}}" wx:if="{{lastSent}}">
+      {{busy ? '正在发送：' : '上次发出：'}}{{lastSent}}
+    </view>
+    <view>修饰键点一下只生效一次：先点 Ctrl 再点 C 就是 Ctrl+C，发完自动松开；上档符号先点 Shift 再点键</view>
+  </view>
+
+</view>

@@ -1,0 +1,141 @@
+.slabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 27rpx;
+  margin-bottom: 4rpx;
+}
+
+.svalue {
+  font-size: 26rpx;
+  color: #0e7c86;
+  font-weight: 600;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+
+.field-name {
+  font-size: 28rpx;
+}
+
+.btnrow {
+  display: flex;
+}
+
+.btnrow .btn {
+  margin-right: 18rpx;
+}
+
+.btnrow .btn:last-child {
+  margin-right: 0;
+}
+
+.mono {
+  font-family: Menlo, Consolas, monospace;
+  font-size: 24rpx;
+  color: #0e7c86;
+}
+
+.log {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f3f6f9;
+}
+
+.log:last-child {
+  border-bottom: none;
+}
+
+.log-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  margin-right: 14rpx;
+  flex-shrink: 0;
+}
+
+.log-dot.ok {
+  background: #12a594;
+}
+
+.log-dot.bad {
+  background: #e0454a;
+}
+
+.log-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 24rpx;
+  color: #5b6b7d;
+}
+
+.log-time {
+  font-size: 21rpx;
+  color: #a3aeba;
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}
+
+.listrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 96rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #f0f4f7;
+}
+
+.listrow:last-child {
+  border-bottom: none;
+}
+
+.listrow.danger {
+  color: #e0454a;
+}
+
+.arrow {
+  color: #b9c4cf;
+  font-size: 32rpx;
+}
+
+.privacy {
+  margin-top: 20rpx;
+  background: #f6fafb;
+  border: 1rpx solid #e2edf0;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.privacy-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #0e7c86;
+  margin-bottom: 8rpx;
+}
+
+.privacy-body {
+  font-size: 23rpx;
+  color: #6b7a8c;
+  line-height: 1.7;
+}
+
+.ph {
+  color: #a8b4c0;
+}
+
+.scaleticks {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rpx 6rpx 4rpx;
+}
+
+.scaleticks .tick {
+  font-size: 21rpx;
+  color: #a8b4c0;
+}
+
+.scaleticks .tick.on {
+  color: #0e7c86;
+  font-weight: 600;
+}

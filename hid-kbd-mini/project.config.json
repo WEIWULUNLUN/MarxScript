@@ -1,0 +1,60 @@
+{
+  "appid": "wx9f033eab925cfa72",
+  "projectname": "open-hid-kbd-mini",
+  "description": "MarxScript 病历文书输入辅助小程序软件 V1.0：BLE 下发 GBK 十进制码，CH582F 硬件以 Alt+小键盘上屏",
+  "compileType": "miniprogram",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false,
+    "coverView": true,
+    "nodeModules": false,
+    "checkSiteMap": false,
+    "ignoreDevUnusedFiles": false,
+    "packNpmManually": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      {
+        "value": "tools",
+        "type": "folder"
+      },
+      {
+        "value": "docs",
+        "type": "folder"
+      },
+      {
+        "value": "node_modules",
+        "type": "folder"
+      },
+      {
+        "value": "README.md",
+        "type": "file"
+      },
+      {
+        "value": "小程序项目档案.md",
+        "type": "file"
+      }
+    ],
+    "include": []
+  },
+  "editorSetting": {}
+}

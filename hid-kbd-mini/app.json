@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/devices/devices",
+    "pages/settings/settings",
+    "pages/keyboard/keyboard",
+    "pages/phrases/phrases"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0E7C86",
+    "navigationBarTitleText": "MarxScript",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F4F7FA"
+  },
+  "tabBar": {
+    "color": "#8A97A6",
+    "selectedColor": "#0E7C86",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "发送" },
+      { "pagePath": "pages/devices/devices", "text": "设备" },
+      { "pagePath": "pages/settings/settings", "text": "设置" }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "安卓手机扫描附近蓝牙设备时需要定位权限"
+    }
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,193 @@
+
+.kbpage {
+  min-height: 100vh;
+  padding: 16rpx 16rpx calc(env(safe-area-inset-bottom) + 28rpx);
+  background: var(--bg);
+}
+
+.kbtop {
+  display: flex;
+  align-items: center;
+  height: 76rpx;
+  margin-bottom: 12rpx;
+}
+
+.kbback {
+  font-size: 26rpx;
+  color: var(--brand);
+  padding: 6rpx 14rpx 6rpx 4rpx;
+  flex-shrink: 0;
+}
+
+.kbdev {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kbdot {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #c3ced9;
+  margin-right: 10rpx;
+  flex-shrink: 0;
+}
+
+.kbdot.on {
+  background: var(--ok);
+  box-shadow: 0 0 0 6rpx rgba(18, 165, 148, 0.15);
+}
+
+.kbdname {
+  font-size: 24rpx;
+  color: var(--sub);
+  max-width: 300rpx;
+}
+
+.kbmod {
+  flex-shrink: 0;
+  font-size: 21rpx;
+  line-height: 1.8;
+  padding: 0 16rpx;
+  border-radius: 999rpx;
+  background: #eef2f6;
+  color: var(--sub);
+}
+
+.kbmod.on {
+  background: var(--brand-light);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.kbstrip {
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 10rpx;
+}
+
+.striprow {
+  display: flex;
+  padding: 0 4rpx;
+}
+
+.kbstrip .kkey {
+  flex: none;
+  min-width: 86rpx;
+  height: 68rpx;
+  padding: 0 14rpx;
+  font-size: 23rpx;
+}
+
+.krow {
+  display: flex;
+  align-items: stretch;
+  margin: 0 -4rpx 10rpx;
+}
+
+.kkey {
+  flex: 1;
+  min-width: 0;
+  height: 88rpx;
+  margin: 0 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--text);
+  font-size: 30rpx;
+  border-radius: 14rpx;
+  box-shadow: 0 2rpx 0 #d3dee8, 0 4rpx 10rpx rgba(22, 33, 43, 0.07);
+}
+
+.kkey.w13 {
+  flex: 1.3;
+}
+
+.kkey.w15 {
+  flex: 1.5;
+}
+
+.kkey.space {
+  flex: 3.4;
+  font-size: 26rpx;
+  color: var(--sub);
+}
+
+.kkey.fn {
+  background: #eef2f6;
+  color: #42536b;
+  font-size: 24rpx;
+}
+
+.kkey.sym {
+  font-size: 26rpx;
+}
+
+.kkey.accent {
+  background: linear-gradient(135deg, var(--brand-2), var(--brand));
+  color: #fff;
+  box-shadow: 0 2rpx 0 #0a5f67, 0 6rpx 14rpx rgba(14, 124, 134, 0.28);
+}
+
+.kkey.mod-on {
+  background: linear-gradient(135deg, var(--brand-2), var(--brand));
+  color: #fff;
+  box-shadow: 0 2rpx 0 #0a5f67, 0 0 0 4rpx rgba(18, 165, 148, 0.18);
+}
+
+.kbpad {
+  margin-top: 16rpx;
+  padding: 18rpx 12rpx 12rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 18rpx rgba(22, 33, 43, 0.05);
+}
+
+.padtitle {
+  font-size: 22rpx;
+  color: var(--sub);
+  margin: 0 8rpx 12rpx;
+  letter-spacing: 0.5rpx;
+}
+
+.padline {
+  display: flex;
+  margin: 0 -4rpx 10rpx;
+}
+
+.padline:last-child {
+  margin-bottom: 0;
+}
+
+.kkey.pad {
+  height: 80rpx;
+  font-size: 28rpx;
+}
+
+.hintbar {
+  margin-top: 18rpx;
+  font-size: 21rpx;
+  line-height: 1.6;
+  color: #9aa8b6;
+  text-align: center;
+  padding: 0 20rpx;
+}
+
+.lastsent {
+  display: inline-block;
+  margin-bottom: 10rpx;
+  padding: 4rpx 18rpx;
+  border-radius: 999rpx;
+  background: #eef2f6;
+  color: #42536b;
+  font-size: 22rpx;
+}
+
+.lastsent.sending {
+  background: var(--brand-light);
+  color: var(--brand);
+}

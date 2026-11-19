@@ -1,0 +1,72 @@
+<view class="page">
+
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">病历短语库</text>
+      <text class="muted">{{list.length}} / {{maxCount}}</text>
+    </view>
+
+    <view wx:if="{{list.length === 0}}" class="empty">
+      还没有短语。把常写的病历模板存下来，一次点选就能发。
+    </view>
+
+    <view class="pitem" wx:for="{{list}}" wx:key="id">
+      <view class="pitem-top">
+        <view class="pitem-title ellipsis">{{item.title || '未命名短语'}}</view>
+        <view class="pitem-count">{{item.content.length}} 字</view>
+      </view>
+      <view class="pitem-body">{{item.content}}</view>
+      <view class="pitem-act">
+        <button class="btn sm" data-id="{{item.id}}" data-dir="-1" bindtap="onMove">上移</button>
+        <button class="btn sm" data-id="{{item.id}}" data-dir="1" bindtap="onMove">下移</button>
+        <button class="btn sm ghost" data-id="{{item.id}}" bindtap="onFill">填入</button>
+        <button class="btn sm ghost" data-id="{{item.id}}" bindtap="onEdit">编辑</button>
+        <button class="btn sm danger" data-id="{{item.id}}" bindtap="onDelete">删除</button>
+      </view>
+    </view>
+  </view>
+
+  <button class="btn primary block" bindtap="onAdd">新增短语</button>
+  <view class="muted" style="text-align:center;margin-top:16rpx">
+    短语只保存在本机，不上传服务器
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>
+
+<view class="mask" wx:if="{{editor.open}}" bindtap="onCancel"></view>
+<view class="sheet {{editor.open ? 'show' : ''}}">
+  <view class="sheet-hd">
+    <text class="sheet-title">{{editor.id ? '编辑短语' : '新增短语'}}</text>
+    <text class="link" bindtap="onCancel">关闭</text>
+  </view>
+
+  <view class="field">
+    <text class="field-label">名称</text>
+    <input
+      class="input"
+      value="{{editor.title}}"
+      placeholder="例如：一般情况"
+      placeholder-class="ph"
+      maxlength="16"
+      bindinput="onTitleInput"
+    />
+  </view>
+
+  <view class="sheet-label">内容</view>
+  <textarea
+    class="sheet-ta"
+    value="{{editor.content}}"
+    bindinput="onContentInput"
+    maxlength="1000"
+    placeholder="粘贴或输入病历模板文字…"
+    placeholder-class="ph"
+    show-confirm-bar="{{false}}"
+  ></textarea>
+
+  <view class="sheet-foot">
+    <button class="btn flex1" bindtap="onCancel">取消</button>
+    <button class="btn primary flex1" bindtap="onSave" disabled="{{saving}}">保存</button>
+  </view>
+  <view class="safe-bottom"></view>
+</view>

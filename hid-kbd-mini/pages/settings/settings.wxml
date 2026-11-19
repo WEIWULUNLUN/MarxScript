@@ -1,0 +1,154 @@
+<view class="page">
+
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">发送参数</text>
+      <text class="muted">{{authed ? '已下发到设备' : '连接后自动下发'}}</text>
+    </view>
+
+    <view class="slabel">
+      <text>发送速度</text>
+      <text class="svalue">{{profileNames[sliderIdx]}}</text>
+    </view>
+
+    <slider
+      min="0"
+      max="{{maxIndex}}"
+      step="1"
+      value="{{sliderIdx}}"
+      activeColor="#0E7C86"
+      backgroundColor="#E7EDF3"
+      block-size="22"
+      show-value="{{false}}"
+      bindchanging="onSpeedChanging"
+      bindchange="onSpeedChange"
+    />
+
+    <view class="muted" style="margin-bottom:10rpx">{{profileDescs[sliderIdx]}}</view>
+
+    <view class="scaleticks">
+      <text wx:for="{{profileNames}}" wx:key="*this" class="tick {{index === sliderIdx ? 'on' : ''}}">{{item}}</text>
+    </view>
+
+    <view class="divider"></view>
+
+    <view class="field">
+      <view class="flex1">
+        <view class="field-name">心跳间隔</view>
+        <view class="muted">识别设备离线/卡死，最小 5 秒</view>
+      </view>
+      <view class="svalue">{{settings.heartbeat / 1000}} s</view>
+    </view>
+    <slider
+      min="5000"
+      max="60000"
+      step="5000"
+      value="{{settings.heartbeat}}"
+      activeColor="#0E7C86"
+      backgroundColor="#E7EDF3"
+      block-size="22"
+      bindchange="onHeartbeatChange"
+    />
+
+    <view class="field">
+      <view class="flex1">
+        <view class="field-name">写入失败不重发</view>
+        <view class="muted">打字不可重复：重发会让同一批字打两遍，所以失败即停，并告诉你已输入多少字</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">联调工具</text>
+      <text class="tag gray">v{{version}}</text>
+    </view>
+
+    <view class="btnrow">
+      <button class="btn ghost flex1" bindtap="onTestSend" disabled="{{!authed || testing}}">
+        {{testing ? '发送中…' : '发送自检文字'}}
+      </button>
+    </view>
+
+    <view class="muted" style="margin-top:16rpx">
+      MTU {{mtuText}} · 每包 {{packText}} 条（{{packBytes}}B）· 队列≤{{qcapText}} 字 · {{wtypeText}}{{wmsText}}（可写上限 {{chunkText}}B）
+    </view>
+    <view class="muted" wx:if="{{mtuNote}}" style="margin-top:6rpx">协商过程：{{mtuNote}}</view>
+
+    <view class="btnrow" style="margin-top:16rpx">
+      <button class="btn ghost flex1" bindtap="onRetest" disabled="{{!authed || retesting}}">
+        {{retesting ? '重测中…' : '重测链路能力'}}
+      </button>
+    </view>
+    <view class="muted" style="margin-top:8rpx">
+      打字时每条命令单独写入（11B），不再把多条命令打成一个包——打包省下的往返会被固件敲字的 200ms 完全盖住，却要承担「一包丢了不知道丢在第几个字」的风险。
+      写入失败不会重发（重发会让同一批字打两遍），失败即停并告诉你已输入多少个字。
+    </view>
+
+    <view class="muted" style="margin-top:16rpx">
+      自检文字为「测试Test123，」，用来验证 GBK 双字节 + ASCII 是否都能上屏。发送前请把光标放在记事本里。
+    </view>
+
+    <view class="divider"></view>
+
+    <view class="card-hd" style="margin-bottom:8rpx">
+      <text class="muted">最近发送</text>
+      <text class="link" bindtap="onClearLogs" wx:if="{{logs.length}}">清空</text>
+    </view>
+    <view wx:if="{{logs.length === 0}}" class="empty">暂无记录</view>
+    <view class="log" wx:for="{{logs}}" wx:key="ts">
+      <text class="log-dot {{item.ok ? 'ok' : 'bad'}}"></text>
+      <text class="log-text ellipsis">{{item.text}}</text>
+      <text class="log-time">{{item.time}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">本地数据</text>
+      <text class="tag gray">不上云</text>
+    </view>
+
+    <view class="listrow" bindtap="onClearPhrases">
+      <text>清空快捷短语</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="listrow" bindtap="onClearDevices">
+      <text>清空绑定设备</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="listrow danger" bindtap="onClearAll">
+      <text>清除全部本地数据</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-hd">
+      <text class="card-title">关于</text>
+    </view>
+
+    <view class="field">
+      <text class="field-label">版本</text>
+      <text class="field-value">{{version}} ({{build}})</text>
+    </view>
+    <view class="field">
+      <text class="field-label">GBK 码表</text>
+      <text class="field-value">本地 CP936 · {{gbkSlots}} 槽位</text>
+    </view>
+    <view class="field" bindtap="showHelp">
+      <text class="field-label">使用说明</text>
+      <text class="arrow">›</text>
+    </view>
+
+    <view class="privacy">
+      <view class="privacy-title">隐私说明</view>
+      <view class="privacy-body">
+        文字只在本机完成 GBK 转码，通过蓝牙下发给键盘设备，不经过任何服务器；设备记录、短语库、发送日志均保存在本机缓存中，卸载小程序即清除。
+        本小程序不做云端存储病历，也不采集个人身份信息。
+      </view>
+    </view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>
