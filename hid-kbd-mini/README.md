@@ -61,7 +61,7 @@ hid-kbd-mini/
 
 ## 开源版说明
 
-本目录由内部版本 **小程序 0.11.9 + 固件 v44（`KBD582_v44_20261114-1951.hex`）** 整理而来，
+本目录由内部版本 **小程序 0.11.9 + 固件 v44（`MarxScript-V1.hex`）** 整理而来，
 只对微信小程序端做了删减，`KBD582/` 固件源码、协议与功能完全未改动：
 
 - 移除「宏」页面、底部 tab、`utils/macro.js` 及链路层的宏执行接口
@@ -80,5 +80,5 @@ clone 后请注意：
 - `KBD582/.project` 与 `KBD582/KBD582.wvproj` 的 `linkedResources` 使用占位路径 `SDK_ROOT/EVT/EXAM/...`
   （`BLE/HAL`、`SRC/Startup`、`SRC/StdPeriphDriver` 等），需在 MounRiver Studio 中
   重新指向自己机器上沁恒 CH58x `EVT/EXAM` 目录的实际位置才能编译。
-- `KBD582/firmware/` 内附 v44 预编译产物，可直接烧录 `KBD582_v44_20261114-1951.hex`，无需自行编译。
+- `KBD582/firmware/` 内附 v44 预编译产物，可直接烧录 `MarxScript-V1.hex`，无需自行编译。
 - 仓库根目录的 `LICENSE`（Apache-2.0）与 `NOTICE` 适用于整个项目；上游声明见 `KBD582/THIRD-PARTY-NOTICES.md`。

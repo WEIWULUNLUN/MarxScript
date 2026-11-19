@@ -11,14 +11,14 @@
 | `hid-kbd-mini/` | 微信小程序：蓝牙扫描与连接、文本转按键指令、长文批量下发、累计序号回执与状态对账、发送期间屏幕常亮 | 0.11.9 / V1.0 |
 | `KBD582/` | 沁恒 CH582F 固件源码：BLE 自定义 GATT 服务、USB HID 键盘、行协议解析、击键队列与看门狗 | v44（`v44_20261114-1951`，广播名 `CH582F-v44`） |
 
-`KBD582/firmware/` 内附 v44 预编译产物：
+`KBD582/firmware/` 内附 v44 预编译产物（构建标识 `v44_20261114-1951`，广播名 `CH582F-v44`），文件名统一为 `MarxScript-V1.*`：
 
 | 文件 | 用途 |
 | --- | --- |
-| `KBD582_v44_20261114-1951.hex` | Intel HEX，**可直接烧录** |
-| `KBD582_v44_20261114-1951.bin` | 二进制镜像 |
-| `KBD582_v44_20261114-1951.elf` | 带调试符号的可执行文件 |
-| `KBD582_v44_20261114-1951.map` | 链接映射表 |
+| `MarxScript-V1.hex` | Intel HEX，**可直接烧录** |
+| `MarxScript-V1.bin` | 二进制镜像 |
+| `MarxScript-V1.elf` | 带调试符号的可执行文件 |
+| `MarxScript-V1.map` | 链接映射表 |
 
 ## 工作原理
 
@@ -40,7 +40,7 @@
 
 ### 固件
 
-1. 直接烧录 `KBD582/firmware/KBD582_v44_20261114-1951.hex`（WCH-Link 或 WCH ISP 工具），无需编译。
+1. 直接烧录 `KBD582/firmware/MarxScript-V1.hex`（WCH-Link 或 WCH ISP 工具），无需编译。
 2. 若要改源码：用 MounRiver Studio 打开 `KBD582/`，把 `.project` 与 `KBD582.wvproj` 中 `linkedResources` 的占位路径 `SDK_ROOT/EVT/EXAM/...` 改成本机沁恒 CH58x `EVT/EXAM` SDK 的实际位置，再编译。
 
 ## 已知限制
