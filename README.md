@@ -46,6 +46,7 @@
 ## 许可与第三方声明
 
 仅限非商业用途
+
 本项目整体采用 **Apache License 2.0**，见根目录 `LICENSE`；版权与归属说明见 `NOTICE`。
 
 固件基于沁恒微电子 CH58x EVT/EXAM SDK 二次开发，上游同样为 Apache-2.0。11 个上游源码文件保留了原始版权头与 SPDX 标识，完整清单见 `KBD582/THIRD-PARTY-NOTICES.md`。修改或再分发时请一并保留。
